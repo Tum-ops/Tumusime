@@ -1,0 +1,121 @@
+<DOCTYPE html>
+    <html>
+        <head>
+            <title>Login</title>
+        </head>
+        <body>
+            
+            
+            <style>
+                .form-container{
+                    border:2px solid black;
+                    border-radius:4px;
+                    text-align:center;
+                    position:center;
+                    font-size:30px;
+                    
+                    background-color:transparent;
+                    height:500px;
+                    width:490px;
+                    cursor:pointer;
+                    opacity:34px;
+                    color:black;
+                    margin:3% 30%;
+                    border:none;
+                    display:flex-box;
+                    box-shadow:12px 18px 24px;
+                    backdrop-filter: blur(26px);
+
+                    
+                    
+                }
+                button{
+                    padding:5px 10px;
+                    height:60px;
+                    width:120px;
+                    margin:50px 4px;
+                    border-radius:5px;
+                    font-family:sans-serif;
+                    font-size:30px;
+                    background-color:white;  
+                    display:flex-box;
+                    box-shadow:2px 8px 4px;
+                    font-weight:bold;
+                }
+                button:hover{
+                    cursor:pointer;
+                    background-color:rgb(15, 194, 230);
+                    color:white;
+                    font-weight:bold;
+                }
+                body{
+                    text-align:center;
+                    position:center;
+                    background-image: url('african.jpeg');
+                    
+                } 
+                input{
+                   
+                    height:10px;
+                    width:440px;
+                    padding:30px;
+                    border-radius:2px;
+                    font-size:22px;
+                    border-width:0px 0px 3px 0px;
+                    outline:none;
+                    font-weight:bold;
+                    background-color:transparent;
+                    
+                    
+                    
+                }
+                input:hover{
+                   
+                }
+                ::placeholder{
+                    font-weight:bold;
+                }
+                .form-inputs{
+                    margin:1em 1px;
+                }
+                h1{
+                    margin-top:1.5em;
+                    padding-top:1em;
+                }
+                
+            </style>
+            <div class="form-container">
+                <h1>Login</h1>
+                                <p id="demo"></p>
+            <div class="form-inputs">
+                
+                <input type="text"  placeholder="Enter UserNames" required="required" id="user">
+            </div>
+            
+            <div>
+                
+                <input type="password" placeholder="Enter Password" required="required" id="pass">
+            </div>
+                <div>
+                <button onclick="foll()"> Login</button>
+            </div>
+
+                </div>
+            <hr>
+            </--border-style:dotted; -->
+            </--onclick="document.getElementById('demo').innerHTML = Date()"-->
+
+            <script>
+                function foll(location){
+                const pass=document.getElementById("pass").value;
+                const user=document.getElementById("user").value;
+                if(pass==="tumusime" && user=== "tumusime"){
+                   window.location.href= "tum.html";
+                    }else{
+                    alert("Login Fail!")
+                    }
+                    
+                }
+            </script>
+        </body>
+    </html>

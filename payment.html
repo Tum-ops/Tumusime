@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Service</title>
+    <link rel="stylesheet" href="payement.css">
+</head>
+<body>
+    <h1>Payment Service</h1>
+    <form id="paymentForm">
+        <tn><img src="ts.png" alt="Auto Moto" width="100"></tn>
+        
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your full name" required><br><br>
+        
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required><br><br>
+        
+        <label for="cardNumber">Payment Card</label>
+        <input type="text" id="cardNumber" placeholder="xxxx xxxx xxxx xxxx" maxlength="19" required><br><br>
+        
+        <button type="submit">Buy Product</button>
+    </form>
+
+    <h2>Purchase History</h2>
+    <ul id="purchaseHistory"></ul>
+
+    <script>
+        // Function to load purchase history from localStorage
+        function loadPurchaseHistory() {
+            const history = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+            const historyList = document.getElementById('purchaseHistory');
+            historyList.innerHTML = '';
+            history.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `Product: ${item.productName}, Date: ${item.date}`;
+                historyList.appendChild(listItem);
+            });
+        }
+
+        // Event listener for form submission
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Retrieve form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const cardNumber = document.getElementById('cardNumber').value.trim();
+
+            // Validate form fields
+            if (!name || !email || !cardNumber) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Basic card number validation (length check)
+            if (cardNumber.length !== 19) {
+                alert('Please enter a valid card number (xxxx xxxx xxxx xxxx).');
+                return;
+            }
+
+            // Simulate payment processing
+            alert('Payment successful! Thank you for your purchase.');
+
+            // Record purchase history
+            const purchase = {
+                productName: 'Sample Product', // Replace with actual product name
+                date: new Date().toLocaleString()
+            };
+
+            // Retrieve existing purchase history from localStorage
+            const history = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+
+            // Add new purchase to history
+            history.push(purchase);
+
+            // Save updated history back to localStorage
+            localStorage.setItem('purchaseHistory', JSON.stringify(history));
+
+            // Reload purchase history on the page
+            loadPurchaseHistory();
+        });
+
+        // Load purchase history when the page loads
+        window.onload = loadPurchaseHistory;
+    </script>
+</body>
+</html>

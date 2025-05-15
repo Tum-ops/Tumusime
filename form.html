@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form</title>
+   <link rel="stylesheet" href="form1.css">
+
+</head>
+<body>
+
+<div class="form-container">
+  <div class="form-header">
+    <h1>Sign Up</h1>
+  </div>
+
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" placeholder="Enter first Name" class="inputs">
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" placeholder="Enter Last Name" class="inputs">
+  </div>
+
+  <div class="form-group">
+    <label for="dob">Date Of Birth</label>
+    <input type="date" id="dob" class="inputs">
+  </div>
+
+  <div class="form-group">
+    <label>Gender:</label>
+    <label for="male">Male</label>
+    <input type="radio" id="male" name="gender" required>
+    <label for="female">Female</label>
+    <input type="radio" id="female" name="gender" required>
+  </div>
+
+  <div class="form-group">
+    <label for="country">Country</label>
+    <select id="country" class="inputs">
+      <option></option>
+      <option>Rwanda</option>
+      <option>USA</option>
+      <option>England</option>
+      <option>Kenya</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="email">E-mail</label>
+    <input type="email" id="email" placeholder="Enter E-mail" class="inputs">
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="number" id="phone" placeholder="Enter Phone" class="inputs">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Password" class="inputs">
+      <input type="checkbox" onclick="hide()"> Show password.
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" class="inputs">
+  </div>
+
+  <div class="form-group">
+    <input type="checkbox" id="terms">
+    <label for="terms">I Agree to the terms of use</label>
+  </div>
+
+  <div class="button-group">
+    <button id="sub">Submit Query</button>
+    <button id="cancel" onclick="cancel()">Cancel</button>
+  </div>
+    <footer>
+  <p>&copy; 2025 Tum_del. All Rights Reserved.</p>
+</footer>
+</div>
+    <script>
+        function hide(){
+            let hid=document.getElementById("password");
+            let hide=document.getElementById("confirmPassword");
+            if(hid.type === "password"){
+                hid.type ="text"
+            }else{
+                hid.type="password"
+            }
+            //On confirming       the && can't work
+               if(hide.type === "password"){
+                hide.type ="text"
+            }else{
+                hide.type="password"
+            }
+        }
+        const cancel=()=>{
+            document.getElementById("firstName").value="";
+            document.getElementById("lastName").value="";
+            document.getElementById("dob").value="";
+            document.getElementById("male").value="";
+            document.getElementById("female").value="";
+            document.getElementById("country").value="";
+            document.getElementById("email").value="";
+            document.getElementById("phone").value="";
+            document.getElementById("password").value="";
+        }
+        function Submit (location){
+           window.location.href= "tum.html";
+        }
+    </script>
+
+</body>
+</html>
